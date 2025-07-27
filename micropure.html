@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micropure Water - Ngumo West's Premium Water Delivery | Nairobi</title>
+    <meta name="description" content="Premium mineral water delivery in Ngumo West, Nairobi. W.H.O. certified, calcium-enriched. Free 20-minute delivery. Call 0720 749 515">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #0066cc;
+            --light-blue: #e6f2ff;
+            --accent-blue: #0099ff;
+            --kenya-red: #ce1126;
+            --kenya-green: #006600;
+            --text-dark: #333;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --gold: #ffd700;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        /* Urgent Banner */
+        .urgent-banner {
+            background: linear-gradient(90deg, var(--kenya-red), var(--kenya-green));
+            color: var(--white);
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,102,204,0.9), rgba(0,153,255,0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e6f2ff" width="1200" height="600"/><path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="%230099ff" opacity="0.2"/><circle cx="200" cy="150" r="80" fill="%230066cc" opacity="0.1"/><circle cx="600" cy="300" r="120" fill="%230099ff" opacity="0.1"/><circle cx="1000" cy="200" r="100" fill="%230066cc" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(255,215,0,0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255,215,0,0.6);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37,211,102,0.6);
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Testimonial Strip */
+        .testimonial-strip {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .testimonial-content {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            gap: 4rem;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .testimonial-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 4rem 1rem;
+            background: var(--gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--kenya-green);
+            margin-bottom: 3rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--kenya-green), var(--kenya-red));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .pricing-cards {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .price-card {
+            background: rgba(255,255,255,0.95);
+            color: var(--text-dark);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            width: 320px;
+            position: relative;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .price-card.popular {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--kenya-red);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .price-card.popular:hover {
+            transform: translateY(-10px) scale(1.07);
+        }
+        
+        .price-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--kenya-green);
+        }
+        
+        .price-unit {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-features {
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+        
+        .price-features li {
+            padding: 0.5rem 0;
+            list-style: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .price-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--kenya-green);
+            font-weight: bold;
+        }
+        
+        /* Location Section */
+        .location {
+            padding: 4rem 1rem;
+            background: var(--white);
+        }
+        
+        .location-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .delivery-zones {
+            background: var(--light-blue);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .delivery-zones h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .zone-list {
+            list-style: none;
+        }
+        
+        .zone-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .zone-list .free {
+            color: var(--kenya-green);
+            font-weight: bold;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 4rem 1rem;
+            background: var(--gray);
+        }
+        
+        .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .contact-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-card a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .order-process {
+            background: linear-gradient(135deg, var(--kenya-green), var(--kenya-red));
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .step-number {
+            background: var(--white);
+            color: var(--kenya-green);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .proof-item {
+            text-align: center;
+        }
+        
+        .proof-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+        
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 999;
+        }
+        
+        .fab {
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .fab.call {
+            background: var(--kenya-red);
+        }
+        
+        .fab:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .price-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .trust-badges {
+                gap: 1rem;
+            }
+            
+            .badge {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+        
+        /* Loading animation */
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Urgent Banner -->
+    <div class="urgent-banner">
+        💥 BUY ONE GET ONE FREE! Limited time offer - Order now and double your water! 💥
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                💧 Micropure Water
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Why Micropure</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#delivery">Delivery Areas</a></li>
+                <li><a href="#contact">Order Now</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle">⚡ NGUMO WEST'S #1 WATER DELIVERY ⚡</div>
+            <h1>Stay Hydrated, Nairobi!</h1>
+            <p>Beat the heat with W.H.O. certified mineral water enriched with calcium. Delivered ice-cold to your door in just 20 minutes!</p>
+            
+            <div class="trust-badges">
+                <div class="badge">
+                    <span>✅</span>
+                    <span>W.H.O. Certified</span>
+                </div>
+                <div class="badge">
+                    <span>🚚</span>
+                    <span>20-Min Delivery</span>
+                </div>
+                <div class="badge">
+                    <span>💰</span>
+                    <span>M-Pesa Accepted</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="https://wa.me/254720749515?text=Hello!%20I%20want%20to%20order%20Micropure%20Water" class="btn btn-whatsapp">
+                    <span>💬</span>
+                    <span>Order on WhatsApp</span>
+                    <span class="blink">🔥</span>
+                </a>
+                <a href="tel:0720749515" class="btn btn-primary">
+                    <span>📞</span>
+                    <span>Call: 0720 749 515</span>
+                </a>
+            </div>
+            
+            <p style="font-size: 1rem; opacity: 0.9;">
+                <strong>🏃‍♂️ Order in next 10 minutes for TODAY's delivery!</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonial Strip -->
+    <div class="testimonial-strip">
+        <div class="testimonial-content">
+            <div class="testimonial-item">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span>"Best water in Ngumo! Always on time" - Sarah M.</span>
+            </div>
+            <div class="testimonial-item">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span>"My family loves the taste. Very refreshing!" - John K.</span>
+            </div>
+            <div class="testimonial-item">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span>"Reliable service, great prices" - Mary N.</span>
+            </div>
+            <div class="testimonial-item">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span>"They deliver even during rain!" - Peter O.</span>
+            </div>
+            <!-- Duplicate for continuous scroll -->
+            <div class="testimonial-item">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span>"Best water in Ngumo! Always on time" - Sarah M.</span>
+            </div>
+            <div class="testimonial-item">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span>"My family loves the taste. Very refreshing!" - John K.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in">Why Nairobi Families Choose Micropure</h2>
+            <p class="section-subtitle fade-in">Join 1,000+ satisfied customers in Ngumo West!</p>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Doctor Recommended</h3>
+                    <p>Trusted by Nairobi Hospital professionals for optimal calcium levels</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>7-stage filtration process ensures crystal clear, pure water</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">❄️</div>
+                    <h3>Always Cold</h3>
+                    <p>Delivered chilled - perfect for Nairobi's warm weather</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💪</div>
+                    <h3>Calcium Enriched</h3>
+                    <p>Strengthen bones & teeth with every sip</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Reusable bottles - keeping Nairobi green!</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Never Run Out</h3>
+                    <p>Subscribe & save - automatic weekly deliveries available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: white;">Unbeatable Nairobi Prices</h2>
+            <p class="section-subtitle fade-in" style="color: #ffd700;">Save up to 40% compared to supermarket prices!</p>
+            
+            <div class="pricing-cards">
+                <div class="price-card fade-in">
+                    <h3>Starter Pack</h3>
+                    <div class="price">Ksh 100</div>
+                    <p class="price-unit">10 Litres</p>
+                    <ul class="price-features">
+                        <li>Perfect for daily use</li>
+                        <li>3-4 days supply</li>
+                        <li>Easy to carry</li>
+                        <li>FREE delivery in 20 mins</li>
+                    </ul>
+                    <a href="tel:0720749515" class="btn btn-primary" style="width: 100%;">Order Now</a>
+                </div>
+                
+                <div class="price-card popular fade-in">
+                    <span class="popular-badge">MOST POPULAR</span>
+                    <h3>Family Pack</h3>
+                    <div class="price">Ksh 200</div>
+                    <p class="price-unit">20 Litres</p>
+                    <ul class="price-features">
+                        <li>Best for families</li>
+                        <li>Week's supply</li>
+                        <li>50% more savings</li>
+                        <li>Priority delivery</li>
+                        <li>FREE delivery in 20 mins!</li>
+                    </ul>
+                    <a href="https://wa.me/254720749515?text=I%20want%20the%20Family%20Pack%20(20L)" class="btn btn-whatsapp" style="width: 100%;">
+                        💬 Quick Order
+                    </a>
+                </div>
+                
+                <div class="price-card fade-in">
+                    <h3>Office Pack</h3>
+                    <div class="price">Call Us</div>
+                    <p class="price-unit">Bulk Orders</p>
+                    <ul class="price-features">
+                        <li>50+ Litres</li>
+                        <li>Corporate rates</li>
+                        <li>Weekly contracts</li>
+                        <li>Invoice available</li>
+                        <li>FREE delivery in 20 mins</li>
+                    </ul>
+                    <a href="tel:0733542950" class="btn btn-primary" style="width: 100%;">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="delivery">
+        <div class="location-content">
+            <div>
+                <h2 class="section-title fade-in">We Deliver FREE in 20 Minutes!</h2>
+                <div class="delivery-zones fade-in">
+                    <h3>🚚 Our Service Areas - ALL with FREE Delivery:</h3>
+                    <ul class="zone-list">
+                        <li class="free">✅ Ngumo West Estate</li>
+                        <li class="free">✅ Ngumo</li>
+                        <li class="free">✅ Madaraka</li>
+                        <li class="free">✅ South C</li>
+                        <li class="free">✅ High Rise</li>
+                        <li class="free">✅ Kilimani</li>
+                        <li class="free">✅ Langata</li>
+                        <li class="free">✅ Strathmore</li>
+                    </ul>
+                    
+                    <div style="background: var(--kenya-green); color: white; padding: 1rem; border-radius: 10px; margin-top: 2rem; text-align: center;">
+                        <h3 style="color: white; margin: 0;">🎉 ZERO Delivery Charges!</h3>
+                        <p style="margin: 0.5rem 0 0 0;">We deliver to your doorstep in just 20 minutes - absolutely FREE!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fade-in" style="text-align: center;">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Why Wait? Order Now!</h3>
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><circle cx='200' cy='200' r='180' fill='%23e6f2ff'/><path d='M120 200 L280 200 M200 120 L200 280' stroke='%230066cc' stroke-width='20' stroke-linecap='round'/><circle cx='200' cy='200' r='150' fill='none' stroke='%230099ff' stroke-width='15' stroke-dasharray='10,5'/><text x='200' y='210' text-anchor='middle' font-size='24' font-weight='bold' fill='%230066cc'>20 MIN</text></svg>" alt="20 minute delivery" style="width: 200px; height: 200px;">
+                <p style="font-size: 1.2rem; margin-top: 1rem;">
+                    <strong>⏰ Order now and get your water in 20 minutes!</strong>
+                </p>
+                <a href="https://wa.me/254720749515?text=Hello!%20I%20want%20to%20order%20water%20for%20delivery" class="btn btn-whatsapp" style="margin-top: 1rem;">
+                    💬 Order on WhatsApp Now
+                </a>
+            </div>
+        </div>
+    </section>
